@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+      integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E"
+      crossorigin="anonymous"
+    />
+
+    <title>Weather Journal</title>
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Weather Journal</h1>
+      </header>
+
+      <div class="journal-container">
+        <div class="entry-input">
+          <h2>Add Entry</h2>
+          <form id="journalForm">
+            <div class="form-field">
+              <input
+                type="text"
+                id="city"
+                placeholder="Enter city/state e.g. London"
+              />
+            </div>
+            <div class="form-field">
+              <textarea
+                name="feelings"
+                id="feelings"
+                cols="30"
+                rows="10"
+                placeholder="How are you today? What's happening at the moment to affect your mood?"
+              ></textarea>
+            </div>
+            <div class="form-submit">
+              <button id="generate" type="submit">Generate</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="entry-output" id="entryHolder">
+          <h2 class="journal-entry">Weather Journal Log</h2>
+          <div class="date">
+            <p class="current-date"></p>
+          </div>
+          <div class="location">
+            <p class="name"></p>
+          </div>
+          <div class="weather">
+            <p class="current-weather"></p>
+            <img
+              class="weather-icon"
+              src="images/icon-placeholder.png"
+              alt="weather icon"
+            />
+            <div class="temp">
+              <h3 class="degree"></h3>
+              <span id="celsius">C</span>
+              <p class="slash">/</p>
+              <span id="fahrenheit">F</span>
+            </div>
+          </div>
+          <div class="content" id="content">
+            <p class="content-title">Your Mood:</p>
+            <p class="mood"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Weather Journal created and designed by
+        <a href="https://github.com/joshiue" target="github"></i>Joshua Taiwo</a> ©
+        2022
+      </p>
+    </footer>
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
