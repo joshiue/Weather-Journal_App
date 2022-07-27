@@ -1,4 +1,4 @@
-# Weather-Journal_App
+# Weather Journal App
 # Resources: 
       https://www.rgbtohex.net/
       https://openweathermap.org
