@@ -1,6 +1,5 @@
 # Weather-Journal_App
-# Resources:  
-  https://www.rgbtohex.net/
+# Resources:  https://www.rgbtohex.net/
   https://openweathermap.org
   https://developer.mozilla.org/en-US/docs/Web/API
   https://www.postman.com/
