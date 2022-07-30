@@ -19,9 +19,9 @@
         <h1>Weather Journal</h1>
       </header>
 
-      <div class="journal-container">
-        <div class="entry-input">
-          <h2>Add Entry</h2>
+      <div class="journal_container">
+        <div class="details">
+          <h2>Enter Details</h2>
           <form id="journalForm">
             <div class="form-field">
               <input
@@ -34,37 +34,34 @@
               <textarea
                 name="feelings"
                 id="feelings"
-                cols="30"
-                rows="10"
-                placeholder="How are you today? What's happening at the moment to affect your mood?"
+                cols="0"
+                rows="1"
+                placeholder="How are you feeling today?"
               ></textarea>
             </div>
-            <div class="form-submit">
+            <div class="send">
               <button id="generate" type="submit">Generate</button>
             </div>
           </form>
         </div>
-
-        <div class="entry-output" id="entryHolder">
+        <div class="return" id="entryHolder">
           <h2 class="journal-entry">Weather Journal Log</h2>
           <div class="date">
-            <p class="current-date"></p>
-          </div>
-          <div class="location">
-            <p class="name"></p>
+            <p class="date"></p>
           </div>
           <div class="weather">
             <p class="current-weather"></p>
-            <img
-              class="weather-icon"
-              src="images/icon-placeholder.png"
-              alt="weather icon"
-            />
+            
             <div class="temp">
-              <h3 class="degree"></h3>
-              <span id="celsius">C</span>
+              <h3 class="degree">°</h3>
+              <span id="celsius">°C</span>
               <p class="slash">/</p>
-              <span id="fahrenheit">F</span>
+              <span id="fahrenheit">°F</span>
+              <img class="icon" src="#" alt="icon"/>
+              <div class="space">qwsed</div>
+              <div class="location">
+                <p class="name"></p>
+              </div>
             </div>
           </div>
           <div class="content" id="content">
@@ -74,16 +71,11 @@
         </div>
       </div>
     </main>
-
     <footer>
       <p>
-        Weather Journal created and designed by
-        <a href="https://github.com/joshiue" target="github"></i>Joshua Taiwo</a> ©
-        2022
+        <a href="https://github.com/joshiue" target="github"></i>Joshua Taiwo</a>©2022
       </p>
     </footer>
-
-    <script src="js/jquery-3.6.0.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
