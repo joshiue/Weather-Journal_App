@@ -1,5 +1,7 @@
+//Personal Key for OpenweatherMap API
 const baseURL = "https://api.openweathermap.org/data/2.5/weather?q=";
-const apiKey = "&appid=0b9d0a826b73f811d3ab2f7639e2f5ec";
+const zip = "zip=94040,us";
+const apiKey = "&appid=0b9d0a826b73f811d3ab2f7639e2f5ec&units=imperial";
 
 document.getElementById("generate").addEventListener("click", performAction);
 
@@ -12,7 +14,7 @@ function performAction(e) {
   } else {
     const city = document.getElementById("city").value;
     const journalEntry = document.getElementById("feelings").value;
-    getWeather(baseURL, city, apiKey).then((data) => {
+    getWeather(baseURL, city, apiKey, zip).then((data) => {
       postData("/addEntry", { data: data, mood: journalEntry });
       journal();
     });
@@ -20,8 +22,8 @@ function performAction(e) {
   clearResults();
 }
 
-const getWeather = async (baseURL, city, key) => {
-  const response = await fetch(baseURL + city + key);
+const getWeather = async (baseURL, city, key, zip) => {
+  const response = await fetch(baseURL + city + key + zip);
   const data = await response.json();
   try {
     return {
@@ -97,10 +99,18 @@ const journal = async () => {
       let fahrenheit = celsius * 1.8 + 32;
 
       document.querySelector(".journal-entry").innerHTML = `WEATHER STATUS`;
-      document.querySelector(".date").innerHTML = `${d.getFullYear()} ${months[d.getMonth()]} ${d.getDate()} ${days_of_week[d.getDay()]}`;
-      document.querySelector(".icon").src = `http://openweathermap.org/img/w/${data.icon}.png`;
-      document.querySelector(".current-weather").innerHTML = `${data.description}`;
-      document.querySelector(".name").innerHTML = `${data.city}, ${data.country}`;
+      document.querySelector(".date").innerHTML = `${d.getFullYear()} ${
+        months[d.getMonth()]
+      } ${d.getDate()} ${days_of_week[d.getDay()]}`;
+      document.querySelector(
+        ".icon"
+      ).src = `http://openweathermap.org/img/w/${data.icon}.png`;
+      document.querySelector(
+        ".current-weather"
+      ).innerHTML = `${data.description}`;
+      document.querySelector(
+        ".name"
+      ).innerHTML = `${data.city}, ${data.country}`;
       document.querySelector(".mood").innerHTML = `${mood}`;
       degree.innerHTML = `${Math.floor(celsius)}`;
 
@@ -109,7 +119,7 @@ const journal = async () => {
       });
 
       f.addEventListener("click", () => {
-        degree.textContent = Math.floor(fahrenheit);
+        degree.innerHTML = Math.floor(fahrenheit);
       });
     }
   } catch (error) {
